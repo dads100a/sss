@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявки на паспорт</title>
+</head>
+<body>
+    <h1>Заявки на паспорт</h1>
+    <ul>
+        {% for application in applications %}
+        <li>
+            <a href="{{ url_for('application_detail', id=application.id) }}">{{ application.last_name }} {{ application.first_name }} {{ application.middle_name }}</a>
+            <a href="{{ url_for('delete_application', id=application.id) }}">Удалить</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Назад</a>
+</body>
+</html>
